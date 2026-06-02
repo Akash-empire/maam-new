@@ -5039,14 +5039,12 @@ textarea,
 
 .form-button-group {
   position: fixed;
-  bottom: 0;
   left: 0;
   right: 0;
-  width: 100%;
+  padding-top: 20px;
   padding-left: 16px;
   padding-right: 16px;
   background: #FFF;
-  min-height: 84px;
   display: flex;
   align-items: center;
   justify-content: center;
