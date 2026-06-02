@@ -2168,9 +2168,9 @@ a.badge-dark {
 }
 
 .btn-primary {
-  background: #1E74FD !important;
-  border-color: #1E74FD !important;
-  color: #ffffff !important;
+  background: #32000e !important;
+  border-color: #32000e !important;
+  color: #f08a28 !important;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
@@ -5038,7 +5038,7 @@ textarea,
 }
 
 .form-button-group {
-  position: fixed;
+  /* position: fixed; */
   left: 0;
   right: 0;
   padding-top: 10px;
