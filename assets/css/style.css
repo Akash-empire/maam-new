@@ -7672,3 +7672,69 @@ body.dark-mode-active .cart-item .in .text .detail {
 body.dark-mode-active .cart-item .cart-item-footer {
   border-top: 1px solid #1B283B;
 }
+
+.success-popup{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(4px);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.popup-content{
+    background:#fff;
+    width:320px;
+    text-align:center;
+    padding:30px;
+    border-radius:20px;
+    animation:popupShow .3s ease;
+}
+
+.tick-circle{
+    width:80px;
+    height:80px;
+    background:#28a745;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    margin:0 auto 15px;
+}
+
+.popup-content h3{
+    color:#28a745;
+    margin-bottom:10px;
+}
+
+.popup-content p{
+    color:#666;
+    margin-bottom:20px;
+}
+
+.popup-content button{
+    background:#28a745;
+    color:#fff;
+    border:none;
+    padding:10px 25px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+@keyframes popupShow{
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}

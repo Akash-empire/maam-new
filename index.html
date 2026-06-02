@@ -38,7 +38,7 @@
                 <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae animi omnis iure officiis aut.</h4>
             </div>
             <div class="section mt-1 mb-5">
-                <form action="app-pages.html">
+                <form id="myForm" action="app-pages.html">
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <input type="name" class="form-control" id="email1" placeholder="Name">
@@ -70,6 +70,17 @@
 
                 </form>
             </div>
+            <!-- Success Popup -->
+<div id="successPopup" class="success-popup">
+    <div class="popup-content">
+        <div class="tick-circle">
+            ✓
+        </div>
+        <h3>Data Saved Successfully!</h3>
+        <p>Your information has been recorded.</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
         </div>
 
 
@@ -92,6 +103,39 @@
     <script src="assets/js/plugins/jquery-circle-progress/circle-progress.min.js"></script>
     <!-- Base Js File -->
     <script src="assets/js/base.js"></script>
+
+    <script>
+document.getElementById("myForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const inputs = document.querySelectorAll(".form-control");
+
+    let isValid = true;
+
+    inputs.forEach(input => {
+        if(input.value.trim() === ""){
+            isValid = false;
+        }
+    });
+
+    if(isValid){
+        document.getElementById("successPopup").style.display = "flex";
+    }else{
+        alert("Please fill all fields");
+    }
+});
+
+function closePopup(){
+    document.getElementById("successPopup").style.display = "none";
+
+    // Optional: Reset form after save
+    document.getElementById("myForm").reset();
+
+    // Optional: Redirect to another page
+    // window.location.href = "app-pages.html";
+}
+</script>
 
 
 </body>
