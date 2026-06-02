@@ -36,7 +36,8 @@
             </div>
             <div class="section mt-1">
                 <h1>Welcome</h1>
-                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae animi omnis iure officiis aut.</h4>
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae animi omnis iure officiis aut.
+                </h4>
             </div>
             <div class="section mt-1 mb-5">
                 <form id="myForm" action="app-pages.html">
@@ -130,43 +131,41 @@ function closePopup(){
 </script> -->
 
 
-<script>
-document.getElementById("myForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function (e) {
+            e.preventDefault();
 
-    const inputs = document.querySelectorAll(".form-control");
-    let isValid = true;
+            const inputs = document.querySelectorAll(".form-control");
+            let isValid = true;
 
-    inputs.forEach(input => {
-        if (input.value.trim() === "") {
-            isValid = false;
-        }
-    });
+            inputs.forEach(input => {
+                if (input.value.trim() === "") {
+                    isValid = false;
+                }
+            });
 
-    if (isValid) {
-        Swal.fire({
-            icon: 'success',
-            title: 'Data Saved!',
-            text: 'Your data has been saved successfully.',
-            confirmButtonText: 'OK',
-            confirmButtonColor: '#28a745'
-        }).then(() => {
-            // Redirect after clicking OK
-            // window.location.href = "app-pages.html";
+            if (isValid) {
+                Swal.fire({
+                    title: "Successfully Saved!",
+                    icon: "success",
+                    draggable: true
+                }).then(() => {
+                    // Redirect after clicking OK
+                    // window.location.href = "app-pages.html";
 
-            // Or reset form
-            document.getElementById("myForm").reset();
+                    // Or reset form
+                    document.getElementById("myForm").reset();
+                });
+
+            } else {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Missing Fields',
+                    text: 'Please fill all fields.'
+                });
+            }
         });
-
-    } else {
-        Swal.fire({
-            icon: 'warning',
-            title: 'Missing Fields',
-            text: 'Please fill all fields.'
-        });
-    }
-});
-</script>
+    </script>
 
 
 </body>
