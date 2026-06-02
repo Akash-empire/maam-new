@@ -7673,7 +7673,7 @@ body.dark-mode-active .cart-item .cart-item-footer {
   border-top: 1px solid #1B283B;
 }
 
-@media (max-width:767px){
+/* @media (max-width:767px){
   .success-popup{
     display:none;
     position:fixed;
@@ -7804,4 +7804,4 @@ body.dark-mode-active .cart-item .cart-item-footer {
         transform:scale(1);
         opacity:1;
     }
-}
+} */
