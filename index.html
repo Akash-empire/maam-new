@@ -15,6 +15,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/192x192.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="manifest" href="__manifest.json">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="bg-white">
@@ -104,7 +105,7 @@
     <!-- Base Js File -->
     <script src="assets/js/base.js"></script>
 
-    <script>
+    <!-- <script>
 document.getElementById("myForm").addEventListener("submit", function(e){
 
     e.preventDefault();
@@ -135,6 +136,45 @@ function closePopup(){
     // Optional: Redirect to another page
     // window.location.href = "app-pages.html";
 }
+</script> -->
+
+
+<script>
+document.getElementById("myForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const inputs = document.querySelectorAll(".form-control");
+    let isValid = true;
+
+    inputs.forEach(input => {
+        if (input.value.trim() === "") {
+            isValid = false;
+        }
+    });
+
+    if (isValid) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Data Saved!',
+            text: 'Your data has been saved successfully.',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#28a745'
+        }).then(() => {
+            // Redirect after clicking OK
+            // window.location.href = "app-pages.html";
+
+            // Or reset form
+            document.getElementById("myForm").reset();
+        });
+
+    } else {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Missing Fields',
+            text: 'Please fill all fields.'
+        });
+    }
+});
 </script>
 
 
