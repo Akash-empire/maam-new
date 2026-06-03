@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
-    <title>Mobilekit Mobile UI Kit</title>
+    <title>தமிழக மகளிர் பேரவை </title>
     <meta name="description" content="Mobilekit HTML Mobile UI Kit">
     <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
     <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
@@ -127,13 +127,23 @@
         <div class="card">
             <div class="card-body d-flex justify-content-between align-items-end">
                 <div>
-                    <p>தமிழக மகளிர் பேரவை கொள்கைகள்: <br><br>
+                    <p>தமிழக மகளிர் பேரவை கொள்கைகள் : <br><br>
 
-                        பெண்கள் முன்னேற்றம், சுயதொழில் வளர்ச்சி மற்றும் பொருளாதார சுயநிறைவை ஊக்குவித்தல். <br><br>
+                        பெண்கள் முன்னேற்றம்,
+                        சுயதொழில் வளர்ச்சி ,
+                        பொருளாதார முன்னேற்றம்,
+                        மற்றும் மறுமலர்ச்சி. <br><br>
 
-                        கிராம வளர்ச்சி, இயற்கை வள பாதுகாப்பு மற்றும் சுத்தமான சுற்றுச்சூழலை உருவாக்குதல். <br><br>
+                        கிராம வளர்ச்சி,
+                        இயற்கை வள பாதுகாப்பு சுத்தமான சுற்றுச்சூழலை உருவாக்குதல். <br><br>
 
-                        கல்வி, திறன் மேம்பாடு மற்றும் சமூக நலன் மூலம் பெண்களை வலிமைப்படுத்துதல்.
+                        அடிப்படை கல்வி,
+                        திறன் மேம்பாடு
+                        சமூக நலன் மூலம் பெண்களை வலிமைப்படுத்துதல். <br><br>
+
+                        ‘பெண்கள் உயர்தால் நாடு உயரும்’ <br><br>
+
+                        வாழ்க வையகம் 🙏
                     </p>
                 </div>
 
@@ -183,82 +193,82 @@
     <!-- Base Js File -->
     <script src="assets/js/base.js"></script>
 
-   <script>
-let otpSent = false;
+    <script>
+        let otpSent = false;
 
-document.getElementById("myForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+        document.getElementById("myForm").addEventListener("submit", function (e) {
+            e.preventDefault();
 
-    const otpDiv = document.getElementById("otpDiv");
-    const otpBtn = document.getElementById("otpBtn");
+            const otpDiv = document.getElementById("otpDiv");
+            const otpBtn = document.getElementById("otpBtn");
 
-    // STEP 1 - Get OTP
-    if (!otpSent) {
+            // STEP 1 - Get OTP
+            if (!otpSent) {
 
-        const inputs = document.querySelectorAll(
-            '#myForm input:not(#otpDiv input)'
-        );
+                const inputs = document.querySelectorAll(
+                    '#myForm input:not(#otpDiv input)'
+                );
 
-        let isValid = true;
+                let isValid = true;
 
-        inputs.forEach(input => {
-            if (input.value.trim() === "") {
-                isValid = false;
+                inputs.forEach(input => {
+                    if (input.value.trim() === "") {
+                        isValid = false;
+                    }
+                });
+
+                if (!isValid) {
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Missing Fields",
+                        text: "Please fill all fields."
+                    });
+                    return;
+                }
+
+                otpDiv.style.display = "block";
+                otpBtn.innerText = "Submit";
+                otpSent = true;
+
+                Swal.fire({
+                    icon: "success",
+                    title: "OTP Sent Successfully!"
+                });
+
+                return;
             }
-        });
 
-        if (!isValid) {
-            Swal.fire({
-                icon: "warning",
-                title: "Missing Fields",
-                text: "Please fill all fields."
+            // STEP 2 - Final Submit
+            const allInputs = document.querySelectorAll("#myForm input");
+            let isValid = true;
+
+            allInputs.forEach(input => {
+                if (input.value.trim() === "") {
+                    isValid = false;
+                }
             });
-            return;
-        }
 
-        otpDiv.style.display = "block";
-        otpBtn.innerText = "Submit";
-        otpSent = true;
+            if (!isValid) {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Missing Fields",
+                    text: "Please fill all fields including OTP."
+                });
+                return;
+            }
 
-        Swal.fire({
-            icon: "success",
-            title: "OTP Sent Successfully!"
+            Swal.fire({
+                title: "Successfully Saved!",
+                icon: "success"
+            }).then(() => {
+                document.getElementById("myForm").reset();
+
+                otpDiv.style.display = "none";
+                otpBtn.innerText = "Get OTP";
+                otpSent = false;
+            });
         });
-
-        return;
-    }
-
-    // STEP 2 - Final Submit
-    const allInputs = document.querySelectorAll("#myForm input");
-    let isValid = true;
-
-    allInputs.forEach(input => {
-        if (input.value.trim() === "") {
-            isValid = false;
-        }
-    });
-
-    if (!isValid) {
-        Swal.fire({
-            icon: "warning",
-            title: "Missing Fields",
-            text: "Please fill all fields including OTP."
-        });
-        return;
-    }
-
-    Swal.fire({
-        title: "Successfully Saved!",
-        icon: "success"
-    }).then(() => {
-        document.getElementById("myForm").reset();
-
-        otpDiv.style.display = "none";
-        otpBtn.innerText = "Get OTP";
-        otpSent = false;
-    });
-});
-</script>
+    </script>
 
 
 </body>
