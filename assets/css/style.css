@@ -1956,13 +1956,13 @@ a.badge-dark {
 }
 
 .card .card-body {
-  padding: 24px 16px;
+  padding: 10px 16px;
   line-height: 1.4em;
 }
 
 .card .card-title {
   color: #141515;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
 }
 
