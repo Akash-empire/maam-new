@@ -7805,3 +7805,7 @@ body.dark-mode-active .cart-item .cart-item-footer {
         opacity:1;
     }
 } */
+
+body.dark-mode-active h2 {
+  color: #000000;
+}

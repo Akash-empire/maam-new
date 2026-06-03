@@ -182,68 +182,82 @@
     <!-- Base Js File -->
     <script src="assets/js/base.js"></script>
 
-    <script>
+   <script>
 let otpSent = false;
 
 document.getElementById("myForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
+    const otpDiv = document.getElementById("otpDiv");
+    const otpBtn = document.getElementById("otpBtn");
+
+    // STEP 1 - Get OTP
     if (!otpSent) {
-        // Show OTP field
-        document.getElementById("otpDiv").style.display = "block";
 
-        // Change button text
-        document.getElementById("otpBtn").innerText = "Submit";
+        const inputs = document.querySelectorAll(
+            '#myForm input:not(#otpDiv input)'
+        );
 
-        otpSent = true;
+        let isValid = true;
 
-        alert("OTP Sent Successfully!");
-    } else {
-        // Final form submission
-        alert("Form Submitted Successfully!");
-        
-        // If sending to backend:
-        // this.submit();
-    }
-});
-</script>
-
-
-    <script>
-        document.getElementById("myForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const inputs = document.querySelectorAll(".form-control");
-            let isValid = true;
-
-            inputs.forEach(input => {
-                if (input.value.trim() === "") {
-                    isValid = false;
-                }
-            });
-
-            if (isValid) {
-                Swal.fire({
-                    title: "Successfully Saved!",
-                    icon: "success",
-                    draggable: true
-                }).then(() => {
-                    // Redirect after clicking OK
-                    // window.location.href = "app-pages.html";
-
-                    // Or reset form
-                    document.getElementById("myForm").reset();
-                });
-
-            } else {
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Missing Fields',
-                    text: 'Please fill all fields.'
-                });
+        inputs.forEach(input => {
+            if (input.value.trim() === "") {
+                isValid = false;
             }
         });
-    </script>
+
+        if (!isValid) {
+            Swal.fire({
+                icon: "warning",
+                title: "Missing Fields",
+                text: "Please fill all fields."
+            });
+            return;
+        }
+
+        otpDiv.style.display = "block";
+        otpBtn.innerText = "Submit";
+        otpSent = true;
+
+        Swal.fire({
+            icon: "success",
+            title: "OTP Sent Successfully!"
+        });
+
+        return;
+    }
+
+    // STEP 2 - Final Submit
+    const allInputs = document.querySelectorAll("#myForm input");
+    let isValid = true;
+
+    allInputs.forEach(input => {
+        if (input.value.trim() === "") {
+            isValid = false;
+        }
+    });
+
+    if (!isValid) {
+        Swal.fire({
+            icon: "warning",
+            title: "Missing Fields",
+            text: "Please fill all fields including OTP."
+        });
+        return;
+    }
+
+    Swal.fire({
+        title: "Successfully Saved!",
+        icon: "success"
+    }).then(() => {
+        document.getElementById("myForm").reset();
+
+        otpDiv.style.display = "none";
+        otpBtn.innerText = "Get OTP";
+        otpSent = false;
+    });
+});
+</script>
 
 
 </body>
