@@ -35,7 +35,7 @@
                 <div class="card-body d-flex justify-content-between align-items-end">
                     <div>
                         <h5 class="card-title mb-0 d-flex align-items-center justify-content-between">
-                            Welcome
+                           🎉 Welcome 🎉 
                         </h5>
                     </div>
                     <div class="custom-control custom-switch">
@@ -63,7 +63,7 @@
                     <div class="card-body d-flex justify-content-between align-items-end">
                         <div>
                             <h5 class="card-title mb-0 d-flex align-items-center justify-content-between">
-                                Member Registration
+                                Membership Registration Form
                             </h5>
                         </div>
 
@@ -92,16 +92,11 @@
                         </div>
                     </div>
 
-                    <!-- OTP Field (Hidden Initially) -->
-                    <div class="form-group boxed" id="otpDiv" style="display:none;">
-                        <div class="input-wrapper">
-                            <input type="text" class="form-control" placeholder="Enter OTP">
-                        </div>
-                    </div>
+                    
 
                     <div class="form-button-group">
                         <button type="submit" id="otpBtn" class="btn btn-primary btn-block btn-lg">
-                            Get OTP
+                           Submit
                         </button>
                     </div>
 
@@ -163,8 +158,8 @@
                 <ion-icon name="logo-facebook"></ion-icon>
             </a>
 
-            <a href="javascript:;" class="btn btn-icon btn-sm btn-linkedin">
-                <ion-icon name="logo-linkedin"></ion-icon>
+            <a href="javascript:;" class="btn btn-icon btn-sm btn-instagram">
+                <ion-icon name="logo-instagram"></ion-icon>
             </a>
 
             <a href="javascript:;" class="btn btn-icon btn-sm btn-whatsapp">
@@ -199,44 +194,7 @@
         document.getElementById("myForm").addEventListener("submit", function (e) {
             e.preventDefault();
 
-            const otpDiv = document.getElementById("otpDiv");
-            const otpBtn = document.getElementById("otpBtn");
-
-            // STEP 1 - Get OTP
-            if (!otpSent) {
-
-                const inputs = document.querySelectorAll(
-                    '#myForm input:not(#otpDiv input)'
-                );
-
-                let isValid = true;
-
-                inputs.forEach(input => {
-                    if (input.value.trim() === "") {
-                        isValid = false;
-                    }
-                });
-
-                if (!isValid) {
-                    Swal.fire({
-                        icon: "warning",
-                        title: "Missing Fields",
-                        text: "Please fill all fields."
-                    });
-                    return;
-                }
-
-                otpDiv.style.display = "block";
-                otpBtn.innerText = "Submit";
-                otpSent = true;
-
-                Swal.fire({
-                    icon: "success",
-                    title: "OTP Sent Successfully!"
-                });
-
-                return;
-            }
+            
 
             // STEP 2 - Final Submit
             const allInputs = document.querySelectorAll("#myForm input");
